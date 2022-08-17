@@ -1,0 +1,17 @@
+.button-container{
+    max-width: 600px;
+    height: 600px;
+    margin:0 auto;
+    background: #b5b5b5;
+    border-radius: 8px;
+    box-shadow: 4px 4px 6px black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+            "clear clear  memory-save  memory-read"
+            "seven  eight  nine  divide"
+            "four  five  six  multiply"
+            "one  two  three  minus"
+            "zero  decimal  equal  plus";
+}

@@ -1,0 +1,90 @@
+.button{
+    border-radius: 50%;
+    background: white;
+    color: black;
+    box-shadow: 2px 2px 4px black;
+    font-size: 48px;
+    width: 100%;
+}
+
+.button:hover{
+    background: antiquewhite;
+}
+
+.memory-save{
+    grid-area: memory-save;
+    font-size: 22px;
+}
+
+.memory-read{
+    grid-area: memory-read;
+    font-size: 22px;
+}
+
+.seven {
+    grid-area: seven;
+}
+
+.eight {
+    grid-area: eight;
+}
+
+.nine {
+    grid-area: nine;
+}
+
+.divide {
+    grid-area: divide;
+}
+
+.four {
+    grid-area: four;
+}
+
+.five {
+    grid-area: five;
+}
+
+.six {
+    grid-area: six;
+}
+
+.multiply {
+    grid-area: multiply;
+}
+
+.one {
+    grid-area: one;
+}
+
+.two {
+    grid-area: two;
+}
+
+.three {
+    grid-area: three;
+}
+
+.minus {
+    grid-area: minus;
+}
+
+.zero {
+    grid-area: zero;
+}
+
+.decimal {
+    grid-area: decimal;
+}
+
+.equal{
+    grid-area: equal;
+}
+
+.plus {
+    grid-area: plus;
+}
+
+.clear {
+    grid-area: clear;
+}
