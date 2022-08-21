@@ -10,17 +10,13 @@ app.use(cors())
 app.post("/save", async (req,res) => {
     try{
         const { number } = req.body;
-        if(!number || typeof number !== "number"){
+        if(typeof number !== "number"){
             return res.status(400).send("Must be a valid number.")
         }
         await fs.writeFile("memory.txt", number.toString())
 
 
-         return res.status(201).send({
-            number
-        }
-
-        )
+         return res.status(201).send()
     } catch (error){
         return res.status(500).send(error.message);
     }
@@ -30,7 +26,7 @@ app.get("/read", async (req,res) =>{
     try {
         const number = await fs.readFile("memory.txt");
         res.send({
-            number: parseFloat(number.toString())
+            number: number.toString()
         })
     } catch (error){
         res.status(500).send(error.message);

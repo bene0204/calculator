@@ -8,6 +8,10 @@ function App() {
 
     const [expression, setExpression] = useState("");
 
+    if(expression.length > 13){
+        setExpression(expression.slice(0,13))
+    }
+
     function clickHandler(label){
         switch (label){
             case "Clear":
@@ -31,8 +35,13 @@ function App() {
     }
 
     function solve(){
-        const value = eval(expression);
-        setExpression(value);
+        try {
+            const value = +eval(expression).toFixed(4);
+            setExpression(value.toString());
+        } catch ( err ){
+            setExpression("ERROR");
+        }
+
 
     }
 
@@ -50,11 +59,14 @@ function App() {
                 if(!response.ok){
                     return Promise.reject(response);
                 }
-                console.log("OK")
+                const exp = expression;
+                setExpression("SAVED");
+                setTimeout(() => {
+                    setExpression(exp);
+                },1000)
             })
             .catch((err) => {
                 setExpression("ERROR");
-                console.log("Error", err)
             })
     }
 
@@ -62,9 +74,16 @@ function App() {
         fetch('http://localhost:5000/read')
             .then((response) => response.json())
             .then((body) => {
-                console.log("OK")
-                setExpression(expression + body.number)
+                if(expression === "ERROR"){
+                    setExpression(body.number);
+                } else {
+                    setExpression(expression + body.number)
+                }
+
             })
+            .catch((err) => {
+            setExpression("ERROR");
+        })
     }
 
 
